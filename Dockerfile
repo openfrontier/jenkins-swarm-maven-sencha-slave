@@ -2,12 +2,12 @@ FROM openfrontier/jenkins-swarm-maven-slave
 
 MAINTAINER zsx <thinkernel@gmail.com>
 
-ENV SENCHA_HOME=/usr/share/Sencha
-ENV SENCHA_CMD_VERSION=5.0.3.324
-ENV SENCHA_CMD_HOME=${SENCHA_HOME}/Cmd/${SENCHA_CMD_VERSION}
-ENV PATH=${SENCHA_CMD_HOME}:${PATH}
-ENV EXT_VERSION=5.0.1
-ENV EXT_HOME=${SENCHA_HOME}/ext-${EXT_VERSION}
+ENV SENCHA_HOME /opt/Sencha
+ENV SENCHA_CMD_VERSION 5.0.3.324
+ENV SENCHA_CMD_HOME ${SENCHA_HOME}/Cmd/${SENCHA_CMD_VERSION}
+ENV PATH ${SENCHA_CMD_HOME}:${PATH}
+ENV EXT_VERSION 5.0.1
+ENV EXT_HOME ${SENCHA_HOME}/ext-${EXT_VERSION}
 
 USER root
 
@@ -20,7 +20,7 @@ RUN apt-get update && \
 RUN curl -o /cmd.run.zip http://cdn.sencha.com/cmd/${SENCHA_CMD_VERSION}/SenchaCmd-${SENCHA_CMD_VERSION}-linux-x64.run.zip && \
     unzip -p /cmd.run.zip > /cmd-install.run && \
     chmod +x /cmd-install.run && \
-    /cmd-install.run --mode unattended --prefix /usr/share && \
+    /cmd-install.run --mode unattended --prefix /opt && \
     rm /cmd-install.run /cmd.run.zip
 
 # Switch extjs codegen repo location
