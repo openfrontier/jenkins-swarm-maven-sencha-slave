@@ -32,7 +32,7 @@ RUN curl -o /ext-gpl.zip http://cdn.sencha.com/ext/gpl/ext-${EXT_VERSION}-gpl.zi
     rm /ext-gpl.zip
 
 # Add nodeJS
-RUN curl -sL https://deb.nodesource.com/setup_5.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     nodejs \
